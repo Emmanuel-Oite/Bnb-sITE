@@ -170,7 +170,7 @@ section h2 {
 }
 
 .amenity img {
-  max-width: 150px; /* Adjust*/
+  max-width: 100px; /* Adjust*/
   transition: transform 0.2s;
 }
 
@@ -208,9 +208,9 @@ section h2 {
 }
 
 .gallery-container img {
-  max-width: 200px !important;
+  max-width: 300px !important;
   border-radius: 10px;
-  max-height: 200px;
+  max-height: 300px;
   margin-right: 20px;
   transition: transform 0.2s; /* Add a smooth scaling transition on hover */
 }
