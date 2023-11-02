@@ -394,7 +394,7 @@ button[type="submit"]:hover {
   .form-group textarea {
     font-size: 14px;
   }
-
+}
 /* Styling for the footer */
 footer {
   background-color: #58592d;
@@ -460,5 +460,4 @@ footer img {
 .modal img {
   max-width: 90%;
   max-height: 90%;
-}
 }
