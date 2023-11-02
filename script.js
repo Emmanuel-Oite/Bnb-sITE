@@ -75,34 +75,39 @@ document.addEventListener("DOMContentLoaded", function () {
     const testimonials = document.querySelectorAll(".testimonial");
     const dots = document.querySelectorAll(".dot");
     let currentIndex = 0;
-
+  
     function showTestimonial(index) {
-        testimonials.forEach((testimonial) => {
-            testimonial.style.transform = `translateX(-${index * 100}%)`;
-        });
-
-        dots.forEach((dot, i) => {
-            dot.classList.toggle("active", i === index);
-        });
+      testimonials.forEach((testimonial, i) => {
+        if (i >= index && i < index + 3) {
+          testimonial.style.display = "inline-block";
+        } else {
+          testimonial.style.display = "none";
+        }
+      });
+  
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index / 3);
+      });
     }
-
+  
     function nextTestimonial() {
-        currentIndex = (currentIndex + 1) % testimonials.length;
-        showTestimonial(currentIndex);
+      currentIndex = (currentIndex + 3) % testimonials.length;
+      showTestimonial(currentIndex);
     }
-
+  
     function prevTestimonial() {
-        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-        showTestimonial(currentIndex);
+      currentIndex = (currentIndex - 3 + testimonials.length) % testimonials.length;
+      showTestimonial(currentIndex);
     }
-
+  
     dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-            showTestimonial(index);
-            currentIndex = index;
-        });
+      dot.addEventListener("click", () => {
+        showTestimonial(index * 3);
+        currentIndex = index * 3;
+      });
     });
-
+  
     setInterval(nextTestimonial, 5000); // Auto-scroll every 5 seconds
-});
-
+    showTestimonial(currentIndex);
+  });
+  
