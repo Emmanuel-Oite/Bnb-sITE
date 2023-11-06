@@ -181,6 +181,65 @@ section h2 {
 #gallery h2{
   text-align: center;
 }
+
+
+.image-slider {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100%;
+  scroll-behavior: smooth;
+  min-height: 400px; /* Adjust the height as needed */
+}
+
+.image-container {
+  width: 100%; /* Display one image at a time */
+  position: relative;
+  text-align: center;
+  display: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.image-text {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 16px;
+  padding: 5px;
+  text-align: center;
+}
+
+.slider-buttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.prev-button,
+.next-button {
+  padding: 10px 20px;
+  background-color: #FF5733;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: #e64421;
+}
+
 /* CSS for the image gallery in the "Packages" section */
 
 #packages h2 {

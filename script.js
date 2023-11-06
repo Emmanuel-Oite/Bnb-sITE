@@ -71,3 +71,38 @@ function scrollToImage(index) {
     }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const imageContainers = document.querySelectorAll(".image-container");
+    const prevButton = document.querySelector(".prev-button");
+    const nextButton = document.querySelector(".next-button");
+    let currentIndex = 0;
+  
+    function showImage(index) {
+      if (index < 0) {
+        index = imageContainers.length - 1;
+      } else if (index >= imageContainers.length) {
+        index = 0;
+      }
+  
+      imageContainers.forEach((container, i) => {
+        if (i === index) {
+          container.style.display = "block";
+        } else {
+          container.style.display = "none";
+        }
+      });
+  
+      currentIndex = index;
+    }
+  
+    prevButton.addEventListener("click", () => {
+      showImage(currentIndex - 1);
+    });
+  
+    nextButton.addEventListener("click", () => {
+      showImage(currentIndex + 1);
+    });
+  
+    showImage(currentIndex);
+  });
+  
