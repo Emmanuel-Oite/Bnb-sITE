@@ -509,7 +509,12 @@ footer img {
 .social-link:hover {
   color: #ff5733; /* Color change on hover to #ff5733 */
 }
-
+/* Style the map iframe within the contact section */
+iframe {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #007BFF;
+}
 /* Common styles for all devices */
 
 /* Styles for tablets (up to 768px) */
