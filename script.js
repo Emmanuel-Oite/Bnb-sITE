@@ -106,3 +106,42 @@ document.addEventListener("DOMContentLoaded", function () {
     showImage(currentIndex);
   });
   
+  // Enquiry form submission handling
+  document.addEventListener("DOMContentLoaded", function () {
+    const enquiryForm = document.getElementById("enquiry-form");
+    const sendButton = document.getElementById("send-button");
+  
+    enquiryForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+  
+      const name = enquiryForm.querySelector('input[name="name"]').value;
+      const email = enquiryForm.querySelector('input[name="email"]').value;
+      const message = enquiryForm.querySelector('textarea[name="message"]').value;
+  
+      // Prepare the data for sending
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("message", message);
+  
+      // Send the data to the server (you need to implement 'sendmail.php' on the server)
+      fetch("sendmail.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert("Message sent successfully!");
+            // Reset the form
+            enquiryForm.reset();
+          } else {
+            alert("Message failed to send. Please try again later.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
+  });
+   
